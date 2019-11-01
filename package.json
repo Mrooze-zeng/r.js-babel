@@ -1,0 +1,20 @@
+{
+	"name": "r.js-babel",
+	"version": "1.0.0",
+	"description": "Integrate Babel into r.js which is a command line tool for running JavaScript that use the Asynchronous Module Definition API(AMD) for declaring and using JavaScript modules and regular JavaScript script files.",
+	"main": "index.js",
+	"bin": {
+		"rjs": "index.js"
+	},
+	"repository": "git@github.com:Mrooze-zeng/r.js-babel.git",
+	"author": "John <mrooze@v-hiker.cn>",
+	"license": "MIT",
+	"private": false,
+	"dependencies": {
+		"@babel/core": "^7.6.4",
+		"@babel/plugin-proposal-class-properties": "^7.5.5",
+		"@babel/plugin-proposal-decorators": "^7.6.0",
+		"@babel/plugin-proposal-optional-chaining": "^7.6.0",
+		"@babel/preset-env": "^7.6.3"
+	}
+}
