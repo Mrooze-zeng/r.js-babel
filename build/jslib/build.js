@@ -1954,7 +1954,7 @@ define(function (require) {
     if (rawTextByIds) {
       lang.eachProp(rawTextByIds, function (contents, id) {
         var url = require.toUrl(id) + ".js";
-        require._cachedRawText[url] = contents;
+        require._cachedRawText[url] = optimize.babel(contents, config.babel);
       });
     }
 
@@ -2476,12 +2476,6 @@ define(function (require) {
                     //so source map line numbers stay correct, but still allow
                     //for some space separation between files in case ASI issues
                     //for concatenation would cause an error otherwise.
-                    if (config.babel) {
-                      singleContents = optimize.babel(
-                        singleContents,
-                        config.babel,
-                      );
-                    }
                     singleContents += "\n";
 
                     //Add to the source map and to the final contents

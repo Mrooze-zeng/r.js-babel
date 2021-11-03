@@ -266,7 +266,7 @@ define([
                   return require
                     ._cacheReadAsync(url)
                     .then(function (text) {
-                      contents = optimize.babel(text, context.config.babel);
+                      contents = text;
 
                       if (
                         context.config.cjsTranslate &&

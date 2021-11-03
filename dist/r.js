@@ -1,5 +1,5 @@
 /**
- * @license r.js 2.3.6 Wed, 03 Nov 2021 04:50:13 GMT Copyright jQuery Foundation and other contributors.
+ * @license r.js 2.3.6 Wed, 03 Nov 2021 05:22:05 GMT Copyright jQuery Foundation and other contributors.
  * Released under MIT license, http://github.com/requirejs/r.js/LICENSE
  */
 
@@ -19,7 +19,7 @@ var requirejs, require, define, xpcUtil;
 (function (console, args, readFileFunc) {
     var fileName, env, fs, vm, path, exec, rhinoContext, dir, nodeRequire,
         nodeDefine, exists, reqMain, loadedOptimizedLib, existsForNode, Cc, Ci,
-        version = '2.3.6 Wed, 03 Nov 2021 04:50:13 GMT',
+        version = '2.3.6 Wed, 03 Nov 2021 05:22:05 GMT',
         jsSuffixRegExp = /\.js$/,
         commandOption = '',
         useLibLoaded = {},
@@ -27840,7 +27840,7 @@ define('requirePatch', [
                   return require
                     ._cacheReadAsync(url)
                     .then(function (text) {
-                      contents = optimize.babel(text, context.config.babel);
+                      contents = text;
 
                       if (
                         context.config.cjsTranslate &&
@@ -30219,7 +30219,7 @@ define('build', function (require) {
     if (rawTextByIds) {
       lang.eachProp(rawTextByIds, function (contents, id) {
         var url = require.toUrl(id) + ".js";
-        require._cachedRawText[url] = contents;
+        require._cachedRawText[url] = optimize.babel(contents, config.babel);
       });
     }
 
@@ -30741,12 +30741,6 @@ define('build', function (require) {
                     //so source map line numbers stay correct, but still allow
                     //for some space separation between files in case ASI issues
                     //for concatenation would cause an error otherwise.
-                    if (config.babel) {
-                      singleContents = optimize.babel(
-                        singleContents,
-                        config.babel,
-                      );
-                    }
                     singleContents += "\n";
 
                     //Add to the source map and to the final contents

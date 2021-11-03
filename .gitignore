@@ -1,6 +1,5 @@
 .DS_Store
 /node_modules/
-/dist/demo/
 .idea/
 /r.js
 build/jslib/uglifyjs/temp
