@@ -1,5 +1,17 @@
 {
-    "volo": {
-        "url": "https://raw.github.com/requirejs/r.js/{version}/dist/r.js"
-    }
+  "scripts": {
+    "build": "node copydist.js"
+  },
+  "volo": {
+    "url": "https://raw.github.com/requirejs/r.js/{version}/dist/r.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-proposal-decorators": "^7.16.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "babel-plugin-minify-dead-code-elimination": "^0.5.1",
+    "babel-preset-minify": "^0.5.1"
+  }
 }
